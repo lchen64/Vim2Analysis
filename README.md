@@ -1,2 +1,1 @@
-# Using C3D to Analyze Vim2 Dataset From Gallant Lab
-
+# Using C3D and Video Representation Learning to Analyze Vim2 Dataset (fMRI responses from Human Subjects Watching Augmented Videos)
