@@ -40,7 +40,7 @@ google-auth-oauthlib==1.0.0
 google-pasta==0.2.0
 googleapis-common-protos==1.59.1
 h5py==3.9.0
-hdf5==1.10.5
+hdf5
 numexpr== 2.6.2
 Cython== 0.29.21
 pytables==3.8.1
