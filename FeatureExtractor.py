@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import numpy as np
 import tables
 import skimage.transform as st
@@ -22,10 +19,6 @@ resized_stimulus_path = "/resized/resized_stimulus.npy"
 extracted_features_path = "resized/extracted_features_train.npy"
 extracted_features_path_test = "resized/extracted_features_test.npy"
 
-
-# In[2]:
-
-
 def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = 'x'):
     percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
     filledLength = int(length * iteration // total)
@@ -41,10 +34,6 @@ for i in range(10):
     # Do something
     printProgressBar(i + 1, 10, prefix = 'Prefix:', suffix = 'Complete', length = 20)
 '''
-
-
-# In[5]:
-
 
 ######################
 #    Load Dataset    #
@@ -89,15 +78,8 @@ def load_validation_response_all(subject):
 stimulus_train = load_train_stimulus()
 
 
-# In[8]:
-
-
 np.save("stimulus_train.npy", np.asarray(stimulus_train))
 print("Stimulus Loaded. Shape:" + str(stimulus_train.shape))
-
-
-# In[9]:
-
 
 ######################
 #     Load Model     #
@@ -185,14 +167,8 @@ model = create_model()
 model.summary()
 
 
-# In[10]:
-
-
 model.load_weights('c3d-sports1M_weights.h5' , by_name = True) 
 print("Weights Loaded")
-
-
-# In[11]:
 
 
 #####################################
@@ -202,8 +178,6 @@ output_layer_name = 'flatten'
 extractor = create_features_extractor(model,output_layer_name)
 extractor.summary()
 
-
-# In[7]:
 
 
 ################################
@@ -225,24 +199,16 @@ for i in range(number_of_windows):
     printProgressBar(i + 1, number_of_windows, prefix = 'Progress:', suffix = '', length = 100)
 
 #save to file
-np.save(extracted_features_path, extracted_feature)
+
+np.save("extracted_features.npy", extracted_features)
 
 
-# In[ ]:
-
-
-checking = np.load(extracted_features_path)
+checking = np.load("extracted_features.npy")
 print(str(checking.shape))
 print(str(checking.mean()))
 
 
-# In[ ]:
-
-
 stimulus_test = load_validation_stimulus()
-
-
-# In[ ]:
 
 
 #############################
@@ -264,15 +230,10 @@ for i in range(num_windows_test):
     printProgressBar(i + 1, num_windows_test, prefix = 'Progress:', suffix = '', length = 100)
 
 
-# In[ ]:
 
 
 #save to file
-np.save(extracted_features_path_test, extracted_feature)
-
-
-# In[ ]:
-
+np.save("extracted_features_test.npy", extracted_feature)
 
 print(str(extracted_feature.shape))
 
