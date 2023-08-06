@@ -1,6 +1,6 @@
-from load.py import load__train_stimulus, load_train_response, load_validation_stimulus, load_validation_response, resize
-from FeatureExtractor.py import create_model, intermediate_layer_model, feature_hook
-from MultiOutputRegression.py import regression_model
+from load import load_train_stimulus, load_train_response, load_validation_stimulus, load_validation_response, resize
+from FeatureExtractor import create_model, intermediate_layer_model, feature_hook
+from MultiOutputRegression import regression_model
 
 from keras.optimizers import SGD
 from keras import regularizers
@@ -53,9 +53,9 @@ def plot_corr_histogram(corrs, output_name):
     plt.savefig(output_name)
 
 def average_r2(voxels):
-	rsquare = np.empty(voxels)
-	for i in range(y_pred.shape[0]):
-    	rsquare[i] = r2_score(upsampled_test[i], y_pred[i])
+    rsquare = np.empty(voxels)
+    for i in range(y_pred.shape[0]):
+        rsquare[i] = r2_score(upsampled_test[i], y_pred[i])
     return np.average(rsquare) 
 
 
