@@ -1,4 +1,4 @@
-# Using C3D and Video Representation Learning to Analyze Vim2+Shortclips Data (fMRI BOLD Responses from Humans Watching Augmented Videos)
+# C3D and Video Representation Learning Pipeline to Analyze Vim2 and Shortclips (fMRI BOLD Responses)
 
 Vim2 Dataset: https://crcns.org/data-sets/vc/vim-2
 Shortclips Dataset: https://gin.g-node.org/gallantlab/shortclips
